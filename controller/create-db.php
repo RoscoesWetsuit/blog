@@ -23,8 +23,8 @@ $connection =new mysqli($host, $username, $password);
 			echo "successfully created database" . $database;
 		}
 	}
-	
+    //will be executed when we have a database that exists
 	else {
-	echo "success: " . $connection->host_info;
-}
+		echo "Database already exists";
+	}
 $connection->close();
