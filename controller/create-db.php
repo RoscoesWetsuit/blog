@@ -30,6 +30,8 @@ $connection =new mysqli($host, $username, $password);
 
 	$query = $connection->("CREATE TABLE posts ("
 		. "id int(11) NOT NULL AUTO_INCREMENT, "
-		. "TITLE VARCHAR(255)");
+		. "TITLE VARCHAR(255) NOT NULL,"
+		. "post text NOT NULL,"
+		. "PRIMARY KEY (id)");
 
 $connection->close();
