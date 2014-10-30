@@ -29,9 +29,14 @@ $connection =new mysqli($host, $username, $password);
 	}
 
 	$query = $connection->("CREATE TABLE posts ("
+		//the id is an interger
 		. "id int(11) NOT NULL AUTO_INCREMENT, "
+		//title of my post
 		. "TITLE VARCHAR(255) NOT NULL,"
+		//the text that will be in our post
 		. "post text NOT NULL,"
+		//the way tables are connected to eachother
 		. "PRIMARY KEY (id)");
+	    //NOTHING SHOULD BE NULL
 
 $connection->close();
