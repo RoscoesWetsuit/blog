@@ -39,8 +39,9 @@ $connection =new mysqli($host, $username, $password);
 		. "PRIMARY KEY (id) )");
 	    //NOTHING SHOULD BE NULL
     
-    //says if our table was succcessfully created
+    //says if our table was succcessfully created or not
 	if($query) {
+		//what it says if it was successfull
 		echo "successfully created table: posts";
 	}
 	else {
