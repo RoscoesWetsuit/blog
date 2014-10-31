@@ -7,7 +7,7 @@ $connection =new mysqli($host, $username, $password);
 	if($connection->connect_error) {
 	//checks whether or not if there was an error
 	//connection to the database
-	die("error: " . $connection->connect_error);
+	die("<p>error: " . $connection->connect_error . "</p>");
 	
 	}
 	//selects the database i have in database.php
@@ -20,15 +20,15 @@ $connection =new mysqli($host, $username, $password);
 		$query = $connection->query("CREATE DATABASE $database");
         //outputs message
 		if($query) {
-			echo "successfully created database" . $database;
+			echo "<p>successfully created database" . $database . "</p>";
 		}
 	}
     //will be executed when we have a database that exists
 	else {
-		echo "Database already exists";
+		echo "<p>Database already exists.</p>";
 	}
 
-	$query = $connection->("CREATE TABLE posts ("
+	$query = $connection->query("CREATE TABLE posts ("
 		//the id is an interger
 		. "id int(11) NOT NULL AUTO_INCREMENT, "
 		//title of my post
@@ -36,7 +36,14 @@ $connection =new mysqli($host, $username, $password);
 		//the text that will be in our post
 		. "post text NOT NULL,"
 		//the way tables are connected to eachother
-		. "PRIMARY KEY (id)");
+		. "PRIMARY KEY (id) )");
 	    //NOTHING SHOULD BE NULL
-
+    
+    //says if our table was succcessfully created
+	if($query) {
+		echo "successfully created table: posts";
+	}
+	else {
+		echo "<p>$connection->error</p>";
+	}
 $connection->close();
