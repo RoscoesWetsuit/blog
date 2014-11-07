@@ -1,3 +1,11 @@
 body {
 	color: lime;
 }
+
+@media screen and(max-width: 640px) {
+}
+@media(max-width: 320px) {
+	html {
+		background-color: lime;
+	}
+}
