@@ -1,6 +1,6 @@
 <?php
 //lets us insert info from our database
-require_once(__DIR__ . "/../model/database.php");
+require_once(__DIR__ . "/../model/config.php");
 //creating a connection to the database
 $connection = new mysqli($host, $username, $password, $database);
 
