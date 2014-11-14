@@ -1,11 +1,15 @@
-body {
-	color: lime;
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+html {
+	background-color: lime;
+}
 }
 
-@media screen and(max-width: 640px) {
-}
-@media(max-width: 320px) {
-	html {
-		background-color: lime;
-	}
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* Styles */
+ html {
+ 	background-color: orange;
+ }
 }
