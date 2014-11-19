@@ -17,7 +17,13 @@ class Database {
 
 	//opening a connection to the database
 	public function openConnection() {
-
+		$this->connection = new msqli($this->host, $this->usernmae, $this->password, $this->database);
+	
+	if($connection->connect_error) {
+	//checks whether or not if there was an error
+	//connection to the database		
+		die("<p>error: " . $connection->connect_error . "</p>");
+	}
 	}
 
 	//closing a connection to the database
