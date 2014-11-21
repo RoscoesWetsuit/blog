@@ -1,33 +1,6 @@
 <?php
 require_once(__DIR__ . "/../model/config.php");
 
-$connection = new mysqli($host, $username, $password);
-
-
-	if($connection->connect_error) {
-	//checks whether or not if there was an error
-	//connection to the database
-	die("<p>error: " . $connection->connect_error . "</p>");
-	
-	}
-	//selects the database i have in database.php
-	$exists = $connection->select_db($database);
-                           //this is a function, 
-	                       //tries to access a database that exists on my mysqli server
-
-	if(!$exists) {
-		//a command.
-		$query = $connection->query("CREATE DATABASE $database");
-        //outputs message
-		if($query) {
-			echo "<p>successfully created database" . $database . "</p>";
-		}
-	}
-    //will be executed when we have a database that exists
-	else {
-		echo "<p>Database already exists.</p>";
-	}
-
 	$query = $connection->query("CREATE TABLE posts ("
 		//the id is an interger
 		. "id int(11) NOT NULL AUTO_INCREMENT, "
@@ -47,4 +20,3 @@ $connection = new mysqli($host, $username, $password);
 	else {
 		echo "<p>$connection->error</p>";
 	}
-$connection->close();

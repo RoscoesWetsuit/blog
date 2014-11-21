@@ -6,14 +6,41 @@ class Database {
 	private $username;
 	private $password;
 	private $Database;
+	public $error; 
 	//its public because we need it to be accessed wherever in any file
 	//msqli needs a constuctor function, so now wee
 	public function __construct($host, $usernamer, $password, $database) {
 		$this->host= $host;
-		$this->username = $usernme;
+		$this->username = $username;
 		$this->password = $password;
 		$this->database = $database;
-	}
+
+$this->connection = new mysqli($host, $username, $password);
+
+if($this->connection->connect_error) {
+//checks whether or not if there was an error
+//connection to the database
+die("<p>error: " . $this->connection->connect_error . "</p>");
+
+}
+//selects the database i have in database.php
+$exists = $this->connection->select_db($database);
+                   //this is a function, 
+                   //tries to access a database that exists on my mysqli server
+
+if(!$exists) {
+//a command.
+$query = $this->connection->query("CREATE DATABASE $database");
+//outputs message
+if($query) {
+	echo "<p>successfully created database" . $database . "</p>";
+}
+}
+//will be executed when we have a database that exists
+else {
+echo "<p>Database already exists.</p>";
+}
+}
 
 	//opening a connection to the database
 	public function openConnection() {
@@ -42,6 +69,10 @@ class Database {
 
 		//queried the database
 		$query = $this->connection->query($string);
+		//checks whether or not the query is false
+		if(!$query) {
+			$this->error = $this->connection->error;
+		}
 
 		$this->closeConection();
 
