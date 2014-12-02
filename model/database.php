@@ -9,7 +9,7 @@ class Database {
 	public $error; 
 	//its public because we need it to be accessed wherever in any file
 	//msqli needs a constuctor function, so now wee
-	public function __construct($host, $usernamer, $password, $database) {
+	public function __construct($host, $username, $password, $database) {
 		$this->host= $host;
 		$this->username = $username;
 		$this->password = $password;
@@ -44,9 +44,9 @@ echo "<p>Database already exists.</p>";
 
 	//opening a connection to the database
 	public function openConnection() {
-		$this->connection = new msqli($this->host, $this->usernmae, $this->password, $this->database);
+		$this->connection = new mysqli($this->host, $this->username, $this->password, $this->database);
 	
-	if($connection->connect_error) {
+	if($this->connection->connect_error) {
 	//checks whether or not if there was an error
 	//connection to the database		
 		die("<p>error: " . $connection->connect_error . "</p>");
