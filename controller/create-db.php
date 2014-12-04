@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . "/../model/config.php");
 
-	$query = $connection->query("CREATE TABLE posts ("
+	$query = $_SESSION["connection"]->query("CREATE TABLE posts ("
 		//the id is an interger
 		. "id int(11) NOT NULL AUTO_INCREMENT, "
 		//title of my post
@@ -18,5 +18,5 @@ require_once(__DIR__ . "/../model/config.php");
 		echo "successfully created table: posts";
 	}
 	else {
-		echo "<p>$connection->error</p>";
+		echo "<p>" . $_SESSION["connection"]->error . "</p>";
 	}

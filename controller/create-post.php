@@ -7,11 +7,12 @@ $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_STRING);
 //same thing but through posts
 $post = filter_input(INPUT_POST, "post", FILTER_SANITIZE_STRING);
 //this query is to insert things into our table
-$query = $connection->query("INSERT INTO posts SET title = '$title', post = '$post'");
+//updated to session variables
+$query = $_SESSION["connection"]->query("INSERT INTO posts SET title = '$title', post = '$post'");
 
 if($query) {
 	echo "<p>Successfully inserted post: $title</p>";
 }
 else {
-	echo "<p>$connectio->error</p>";
+	echo "<p>" . $_SESSION["connection"]->error . "</p>";
 }
