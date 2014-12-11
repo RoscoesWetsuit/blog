@@ -8,6 +8,7 @@ require_once(__DIR__ . "/../model/config.php");
 		. "TITLE VARCHAR(255) NOT NULL,"
 		//the text that will be in our post
 		. "post text NOT NULL,"
+		. "DateTime datetime NOT NULL,"
 		//the way tables are connected to eachother
 		. "PRIMARY KEY (id) )");
 	    //NOTHING SHOULD BE NULL
