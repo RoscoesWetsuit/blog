@@ -2,6 +2,8 @@
 require_once(__DIR__ . "/database.php");
 //preserves information so that we dont have to create this information,
 session_start();
+//maintains the same session id
+session_regenerate_id(true);
 
 $path = "/blog/";
 
