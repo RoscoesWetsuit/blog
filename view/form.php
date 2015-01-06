@@ -1,7 +1,7 @@
 <?php
 	//gives me access to this path variable
 	require_once(__DIR__ . "/../model/config.php");
-	require_once (__DIR__ ."/../controller/login-verfied.php")
+	require_once (__DIR__ ."/../controller/login-verfied.php");
 
 	if(!authenticateUser()) {
 		header("Location" . $path . "index.php");

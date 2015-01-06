@@ -14,7 +14,7 @@
 			echo "<p>Login was successful</p>";
 		}
 		else {
-			echo "<p>Invalid username and password";
+			echo "<p>Invalid username and password</p>";
 		}
 	}
 	else {
